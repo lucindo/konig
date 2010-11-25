@@ -14,16 +14,16 @@ def load_node(node):
 def load_edge(edge):
     pass
 
-def update_node_propertie(node, key, value):
+def update_node_property(node, key, value):
     pass
 
-def remove_node_propertie(node, key):
+def remove_node_property(node, key):
     pass
 
-def update_edge_propertie(edge, key, value):
+def update_edge_property(edge, key, value):
     pass
 
-def remove_edge_propertie(edge, key):
+def remove_edge_property(edge, key):
     pass
 
 def del_node(node):

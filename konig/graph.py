@@ -22,11 +22,11 @@ class Node:
 
     def __setitem__(self, key, value):
         self._properties[key] = value
-        persistence.update_node_propertie(self, key, value)
+        persistence.update_node_property(self, key, value)
 
     def __delitem__(self, key):
         del self._properties[key]
-        persistence.remove_node_propertie(self, key)
+        persistence.remove_node_property(self, key)
 
 class Edge:
     def __init__(self, nin, nout):
@@ -45,11 +45,11 @@ class Edge:
 
     def __setitem__(self, key, value):
         self._properties[key] = value
-        persistence.update_edge_propertie(self, key, value)
+        persistence.update_edge_property(self, key, value)
 
     def __delitem__(self, key):
         del self._properties[key]
-        persistence.remove_edge_propertie(self, key)
+        persistence.remove_edge_property(self, key)
 
 
 class Graph:
