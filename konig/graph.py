@@ -72,7 +72,13 @@ class Graph:
         persistence.del_edge(edge)
 
 class Traversal:
-    pass
+    def __init__(self, start_node):
+        self._graph = Graph()
+        self._start_node = self._graph.node(start_node)
+        self._visited = set()
+
+    def __iter__(self):
+        pass
 
 if __name__ == '__main__':
     pass
