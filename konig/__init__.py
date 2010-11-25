@@ -4,7 +4,10 @@
 
 __version__ = '0.1'
 
-__all__ = []
+from graph import Node, Edge, Graph
+from persistence import config
+
+__all__ = ['Node', 'Edge', 'Graph', 'config']
 
 if __name__ == '__main__':
     pass
