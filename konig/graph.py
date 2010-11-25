@@ -71,5 +71,8 @@ class Graph:
         edge = Edge(uid, vid)
         persistence.del_edge(edge)
 
+class Traversal:
+    pass
+
 if __name__ == '__main__':
     pass
