@@ -5,8 +5,11 @@
 import graph
 import shardredis
 
-def config():
-    pass
+sr = None
+
+def config(server, port):
+    shardredis.config(server, port)
+    sr = ShardRedis()
 
 def load_node(node):
     pass
