@@ -40,9 +40,9 @@ def simple_test():
 
     print "removed node 1"
 
-    graph.del_node("test")
+    graph.del_node("1")
 
-    print graph.node("1")
+    print graph.node("test")
 
 if __name__ == '__main__':
     konig.config("localhost", 6379)
