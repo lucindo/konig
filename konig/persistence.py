@@ -34,11 +34,10 @@ def remove_node_property(node, key):
     rnodes.hdel(node['id'], key)
 
 def del_node(node):
-    out_edges = rnodes.smembers("%s:o" % node['id'])
-    for n in out_edges:
-        del_edge(graph.Edge(node['id'], n))
+    for oe in rnodes.smembers("%s:o" % node['id']):
+        del_edge(graph.Edge(node['id'], oe))
     for ie in rnodes.smembers("%s:i" % node['id']):
-        rnodes.srem('%s:o' % ie, node['id'])
+        del_edge(graph.Edge(ie, node['id'])
     rnodes.delete(node['id'], "%s:o" % node['id'], "%s:i" % node['id'])
 
 def load_edge(edge):
