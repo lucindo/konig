@@ -9,9 +9,9 @@ import base64
 rnodes = None
 redges = None
 
-def config(server, port):
+def config(server_list):
     global rnodes, redges
-    shardredis.config(server, port)
+    shardredis.config(server_list)
     rnodes = shardredis.ShardRedis(0)
     redges = shardredis.ShardRedis(1)
 
@@ -31,7 +31,7 @@ def update_node_property(node, key, value):
 
 def remove_node_property(node, key):
     assert isinstance(node, graph.Node)
-    rnodes.hdel(node['id'], key, value)
+    rnodes.hdel(node['id'], key)
 
 def del_node(node):
     out_edges = rnodes.smembers("%s:o" % node['id'])
@@ -52,7 +52,7 @@ def update_edge_property(edge, key, value):
 
 def remove_edge_property(edge, key):
     assert isinstance(edge, graph.Edge)
-    redges.hdel(edge['id'], key, value)
+    redges.hdel(edge['id'], key)
 
 def del_edge(edge):
     assert isinstance(edge, graph.Edge)

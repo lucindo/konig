@@ -45,5 +45,5 @@ def simple_test():
     print graph.node("test")
 
 if __name__ == '__main__':
-    konig.config("localhost", 6379)
+    konig.config(["localhost:6379"])
     simple_test()
