@@ -37,6 +37,8 @@ def del_node(node):
     out_edges = rnodes.smembers("%s:o" % node['id'])
     for n in out_edges:
         del_edge(graph.Edge(node['id'], n))
+    for ie in rnodes.smembers("%s:i" % node['id']):
+        rnodes.srem('%s:o' % ie, node['id'])
     rnodes.delete(node['id'], "%s:o" % node['id'], "%s:i" % node['id'])
 
 def load_edge(edge):

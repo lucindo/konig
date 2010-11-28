@@ -49,5 +49,5 @@ def simple_test():
         n['name'] = str(i)
 
 if __name__ == '__main__':
-    konig.config(["localhost:6379", "localhost:8080"])
+    konig.config(["localhost:6379", "localhost:8081"])
     simple_test()
