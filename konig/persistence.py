@@ -39,16 +39,27 @@ def del_node(node):
     rnodes.delete(node['id'], "%s:o" % node['id'], "%s:i" % node['id'])
 
 def load_edge(edge):
-    pass
+    assert isinstance(edge, Edge)
+    properties = redges.hgetall(edge['id'])
+    for key, value in properties.items():
+        edge[key] = value
+    return edge
 
 def update_edge_property(edge, key, value):
-    pass
+    assert isinstance(edge, Edge)
+    redges.hset(edge['id'], key, value)
 
 def remove_edge_property(edge, key):
-    pass
+    assert isinstance(edge, Edge)
+    redges.hdel(edge['id'], key, value)
 
 def del_edge(edge):
-    pass
+    assert isinstance(edge, Edge)
+    in_node = edge.in_node_id()
+    out_node = edge.out_node_id()
+    rnodes.srem("%s:o" % out_node, in_node)
+    rnodes.srem("%s:i" % in_node, out_node)
+    redges.delete(edge['id'])
 
 if __name__ == '__main__':
     pass
