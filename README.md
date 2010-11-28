@@ -69,6 +69,31 @@ API Reference
 ### konig.Graph.del_node(id)
   Removes a node from the system. This method has one known issue: #1
 
+### konig.Node(id)
+  Creates a persistent Node instance. It's recommended to use Graph.node(id) instead.
+  Each node has a internal dict for properties. Konig supports only strings as key and values for now.
+  Use it as a normal dict:
+	>>> node = konig.Graph().node("lucindo")
+	>>> node["name"] = "Renato Lucindo"
+
+### konig.Node.out_edges
+  Returns a set of outgoing edges (node ids).
+
+### konig.Node.in_edges
+  Returns a set of incoming edges (node ids).
+
+### konig.Edge(uid, vid)
+  Creates a persistent Edge instance. It's recommended to use Graph.edge(uid, vid) instead.
+  As nodes, edges also have a internal dict for properties (supporting only strings for now):
+	>>> edge = konig.Graph().edge("lucindo", "python")
+	>>> edge["weight"] = "0"
+
+### konig.Edge.uid()
+  Returns the outgoing node id.
+
+### konig.Edge.vid()
+  Returns the incoming node id.
+
 Future
 ------
 
