@@ -8,6 +8,7 @@ __server__ = None
 __port__ = None
 
 def config(server, port):
+    global __server__, __port__
     __server__ = server
     __port__ = port
 

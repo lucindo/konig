@@ -10,12 +10,13 @@ rnodes = None
 redges = None
 
 def config(server, port):
+    global rnodes, redges
     shardredis.config(server, port)
-    rnodes = ShardRedis(0)
-    redges = ShardRedis(1)
+    rnodes = shardredis.ShardRedis(0)
+    redges = shardredis.ShardRedis(1)
 
 def load_node(node):
-    assert isinstance(node, Node)
+    assert isinstance(node, graph.Node)
     node_id = node['id']
     properties = rnodes.hgetall(node_id)
     for key, value in properties.items():
@@ -25,11 +26,11 @@ def load_node(node):
     return node
 
 def update_node_property(node, key, value):
-    assert isinstance(node, Node)
+    assert isinstance(node, graph.Node)
     rnodes.hset(node['id'], key, value)
 
 def remove_node_property(node, key):
-    assert isinstance(node, Node)
+    assert isinstance(node, graph.Node)
     rnodes.hdel(node['id'], key, value)
 
 def del_node(node):
@@ -39,22 +40,22 @@ def del_node(node):
     rnodes.delete(node['id'], "%s:o" % node['id'], "%s:i" % node['id'])
 
 def load_edge(edge):
-    assert isinstance(edge, Edge)
+    assert isinstance(edge, graph.Edge)
     properties = redges.hgetall(edge['id'])
     for key, value in properties.items():
         edge[key] = value
     return edge
 
 def update_edge_property(edge, key, value):
-    assert isinstance(edge, Edge)
+    assert isinstance(edge, graph.Edge)
     redges.hset(edge['id'], key, value)
 
 def remove_edge_property(edge, key):
-    assert isinstance(edge, Edge)
+    assert isinstance(edge, graph.Edge)
     redges.hdel(edge['id'], key, value)
 
 def del_edge(edge):
-    assert isinstance(edge, Edge)
+    assert isinstance(edge, graph.Edge)
     in_node = edge.in_node_id()
     out_node = edge.out_node_id()
     rnodes.srem("%s:o" % out_node, in_node)
