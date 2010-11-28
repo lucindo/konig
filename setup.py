@@ -18,8 +18,6 @@ sdict = {
     'download_url' : 'http://cloud.github.com/downloads/lucindo/konig/konig-%s.tar.gz' % version,
     'author' : 'Renato Lucindo',
     'author_email' : 'lucindo@gmail.com',
-    'maintainer' : 'Renato Lucindo',
-    'maintainer_email' : 'lucindo@gmail.com',
     'keywords' : ['Graph', 'Database', 'Distributed', 'Redis'],
     'license' : 'BOLA',
     'packages' : ['konig'],

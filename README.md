@@ -3,12 +3,22 @@ konig
 
 **konig** is a *very simple* distributed graph database, result of my NIH syndrome.
 
-Dependencies
-------------
+Dependencies & Installation
+---------------------------
+
+**konig** depends on:
 
 * [Python 2.6] [1]
 * [Redis 2.0.x] [2]
 * [redis-py] [3]
+
+there's no *closed* version by now, but you can do:
+
+    $ git clone https://github.com/lucindo/konig.git
+	$ cd konig
+	$ sudo python setup.py install
+
+I'll try my best to push only working code to master.
 
 Features
 --------
@@ -23,9 +33,15 @@ Working on:
 * Caching system
 * Change notification (pubsub)
 
+Usage
+-----
+
+    >>> import konig
+
 Future
 ------
 
+* Non-blocking API (using [txredisapi] [5])
 * Indexing
 * Namespaces (named graphs)
 
@@ -68,3 +84,4 @@ However, if you want to be "buena onda", you should:
   [2]: http://code.google.com/p/redis/             "Redis"
   [3]: http://github.com/andymccurdy/redis-py/     "redis-py"
   [4]: http://blitiri.com.ar/p/bola/               "BOLA - Buena Onda License Agreement (v1.1)"
+  [5]: https://github.com/gleicon/txredisapi       "redis client for twisted"
