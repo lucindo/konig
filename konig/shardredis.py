@@ -12,8 +12,8 @@ def config(server, port):
     __port__ = port
 
 class ShardRedis(redis.Redis):
-    def __init__(self):
-        redis.Redis.__init__(self, host=__server__, port=__port__)
+    def __init__(self, db=0):
+        redis.Redis.__init__(self, host=__server__, port=__port__, db=db)
 
 if __name__ == '__main__':
     pass

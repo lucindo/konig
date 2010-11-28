@@ -1,7 +1,7 @@
 konig
 =====
 
-**konig** is a simple distributed graph database, result of my NIH syndrome. It's only a prototype for now.
+**konig** is a *very simple* distributed graph database, result of my NIH syndrome.
 
 Dependencies
 ------------
@@ -14,11 +14,20 @@ Features
 --------
 
 * Distributed
+* Nodes and Edges Properties
+
+Working on:
+
+* Error handling (read-only flag)
+* Add/Remove servers on the fly
+* Caching system
+* Change notification (pubsub)
 
 Future
 ------
 
 * Indexing
+* Namespaces (named graphs)
 
 Copyright and License
 ---------------------

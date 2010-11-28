@@ -5,9 +5,9 @@
 import persistence
 
 class Node:
-    def __init__(self, id):
+    def __init__(self, idx):
         self._id = id
-        self._properties = dict()
+        self._properties = {"id": idx}
         self._eout = set()
         self._ein = set()
 
@@ -32,7 +32,7 @@ class Edge:
     def __init__(self, nin, nout):
         self._nin = nin
         self._nout = nout
-        self._properties = dict()
+        self._properties = {"id" : "%s:%s" % (nin, nout) }
 
     def in_node_id(self):
         return self._nin
@@ -53,23 +53,32 @@ class Edge:
 
 
 class Graph:
-    def node(self, id):
-        node = Node(id)
-        persistence.load_node(node)
+    def _get_node(self, idx):
+        if isinstance(idx, Node): idx = idx['id']
+        node = Node(idx)
+        return node
+    
+    def _get_edge(self, uid, vid):
+        if isinstance(uid, Node): uid = uid["id"]
+        if isinstance(vid, Node): vid = vid["id"]
+        edge = Edge(uid, vid)
+        return edge
+
+    def node(self, idx):
+        node = self._get_node(idx)
+        node = persistence.load_node(node)
         return node
 
     def edge(self, uid, vid):
-        edge = Edge(uid, vid)
-        persistence.load_edge(edge)
+        edge = self._get_edge(uid, vid)
+        edge = persistence.load_edge(edge)
         return edge
 
-    def del_node(self, id):
-        node = Node(id)
-        persistence.del_node(node)
+    def del_node(self, idx):
+        persistence.del_node(self._get_node(idx))
 
     def del_edge(self, uid, vid):
-        edge = Edge(uid, vid)
-        persistence.del_edge(edge)
+        persistence.del_edge(self._get_edge(uid, vid))
 
 class Traversal:
     def __init__(self, start_node):
