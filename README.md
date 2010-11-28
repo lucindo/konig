@@ -26,8 +26,9 @@ Features
 * Distributed
 * Nodes and Edges Properties
 
-Working on:
+Working on (following this order):
 
+* Traversal API
 * Error handling (read-only flag)
 * Add/Remove servers on the fly
 * Caching system
@@ -37,6 +38,20 @@ Usage
 -----
 
     >>> import konig
+    >>> konig.config(["localhost:6379"])
+	>>> graph = konig.graph()
+	>>> node1 = graph.node("1")
+	>>> node2 = graph.node("2")
+	>>> edge = graph.edge("1", "2")
+	>>> edge["color"] = "red"
+	>>> node1["name"] = "konig-test"
+
+API Reference
+-------------
+
+### konig.config(server_list)
+  Configure the system with a list of *fixed* redis servers. Each list element a string
+  "server:port". Example: konig.config(["localhost:6379", "localhost:8080"])
 
 Future
 ------
