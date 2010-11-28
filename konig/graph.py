@@ -31,7 +31,7 @@ class Node:
         persistence.remove_node_property(self, key)
 
     def __str__(self):
-        return "id: %s | out_edges: %s | in_edges: %s | properties: %s" % (self._id, str(self._eout), str(_ein), str(self._properties))
+        return "id: %s | out_edges: %s | in_edges: %s | properties: %s" % (self._id, str(self._eout), str(self._ein), str(self._properties))
 
 class Edge:
     def __init__(self, uid, vid):

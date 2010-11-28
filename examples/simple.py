@@ -10,6 +10,9 @@ def simple_test():
     node['name'] = 'Lucindo'
 
     print node['name']
+    print node
+
+    node = graph.node("test")
 
 if __name__ == '__main__':
     konig.config("localhost", 6379)
