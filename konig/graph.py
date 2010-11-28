@@ -7,7 +7,7 @@ from exceptions import KonigError
 
 class Node:
     def __init__(self, idx):
-        self._id = id
+        self._id = idx
         self._properties = {"id": idx}
         self._eout = set()
         self._ein = set()
