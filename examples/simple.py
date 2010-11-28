@@ -44,6 +44,10 @@ def simple_test():
 
     print graph.node("test")
 
+    for i in xrange(100):
+        n = graph.node(str(i))
+        n['name'] = str(i)
+
 if __name__ == '__main__':
-    konig.config(["localhost:6379"])
+    konig.config(["localhost:6379", "localhost:8080"])
     simple_test()
