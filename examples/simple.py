@@ -13,6 +13,36 @@ def simple_test():
     print node
 
     node = graph.node("test")
+    print node
+
+    edge = graph.edge("1", "test")
+    edge['color'] = 'red'
+    print edge
+
+    print "before del"
+
+    print graph.node("1")
+    print graph.node("test")
+
+    graph.del_edge("1", "test")
+
+    print "after del"
+
+    print graph.node("1")
+    print graph.node("test")
+
+    edge = graph.edge("test", "1")
+
+    print "added edge"
+
+    print graph.node("1")
+    print graph.node("test")
+
+    print "removed node 1"
+
+    graph.del_node("test")
+
+    print graph.node("1")
 
 if __name__ == '__main__':
     konig.config("localhost", 6379)
