@@ -67,7 +67,7 @@ API Reference
   Removes an edge from the system.
 
 ### konig.Graph.del_node(id)
-  Removes a node from the system. This method has one known issue: #1
+  Removes a node from the system.
 
 ### konig.Node(id)
   Creates a persistent Node instance. It's recommended to use Graph.node(id) instead.
