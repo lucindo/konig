@@ -1,7 +1,7 @@
 konig
 =====
 
-**konig** is a *very simple* distributed graph database, result of my NIH syndrome.
+**konig** is a *very simple* distributed graph (actually digraph) database, result of my NIH syndrome.
 
 Dependencies & Installation
 ---------------------------
@@ -53,12 +53,29 @@ API Reference
   Configure the system with a list of *fixed* redis servers. Each list element a string
   "server:port". Example: konig.config(["localhost:6379", "localhost:8080"])
 
+### konig.Graph()
+  General graph class
+
+### konig.Graph.node(id)
+  Loads a node or creates one. The id must be a string. Returns a Node class instance.
+
+### konig.Graph.edge(uid, vid)
+  Loads or created a edge from node uid, vid. The parameters uid and vid can be strings (node's id)
+  or Nodes instances. Returns an Edge instance. Note: all edges are directed.
+
+### konig.Graph.del_edge(uid, vid)
+  Removes an edge from the system.
+
+### konig.Graph.del_node(id)
+  Removes a node from the system. This method has one known issue: #1
+
 Future
 ------
 
 * Non-blocking API (using [txredisapi] [5])
 * Indexing
 * Namespaces (named graphs)
+* Support for proper graphs (not only digraphs)
 
 Copyright and License
 ---------------------
