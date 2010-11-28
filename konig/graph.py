@@ -31,16 +31,16 @@ class Node:
         persistence.remove_node_property(self, key)
 
 class Edge:
-    def __init__(self, nin, nout):
-        self._nin = nin
-        self._nout = nout
-        self._properties = {"id" : "%s:%s" % (nin, nout) }
+    def __init__(self, uid, vid):
+        self._uid = uid
+        self._vid = vid
+        self._properties = {"id" : "%s:%s" % (uid, vid) }
 
-    def in_node_id(self):
-        return self._nin
+    def uid(self):
+        return self._uid
 
-    def out_node_id(self):
-        return self._nout
+    def vid(self):
+        return self._vid
 
     def __getitem__(self, key):
         return self._properties[key]

@@ -56,10 +56,10 @@ def remove_edge_property(edge, key):
 
 def del_edge(edge):
     assert isinstance(edge, graph.Edge)
-    in_node = edge.in_node_id()
-    out_node = edge.out_node_id()
-    rnodes.srem("%s:o" % out_node, in_node)
-    rnodes.srem("%s:i" % in_node, out_node)
+    uid = edge.uid()
+    vid = edge.vid()
+    rnodes.srem("%s:o" % uid, vid)
+    rnodes.srem("%s:i" % vid, uid)
     redges.delete(edge['id'])
 
 if __name__ == '__main__':
