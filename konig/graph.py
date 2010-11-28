@@ -3,6 +3,7 @@
 # author: R. Lucindo (lucindo@gmail.com)
 
 import persistence
+from exceptions import KonigError
 
 class Node:
     def __init__(self, idx):
@@ -21,6 +22,7 @@ class Node:
         return self._properties[key]
 
     def __setitem__(self, key, value):
+        if key == 'id': raise KonigError("cannot set id")
         self._properties[key] = value
         persistence.update_node_property(self, key, value)
 
@@ -44,6 +46,7 @@ class Edge:
         return self._properties[key]
 
     def __setitem__(self, key, value):
+        if key == 'id': raise KonigError("cannot set id")
         self._properties[key] = value
         persistence.update_edge_property(self, key, value)
 
