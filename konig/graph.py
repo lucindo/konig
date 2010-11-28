@@ -30,11 +30,15 @@ class Node:
         del self._properties[key]
         persistence.remove_node_property(self, key)
 
+    def __str__(self):
+        return "id: %s | out_edges: %s | in_edges: %s | properties: %s" % (self._id, str(self._eout), str(_ein), str(self._properties))
+
 class Edge:
     def __init__(self, uid, vid):
         self._uid = uid
         self._vid = vid
-        self._properties = {"id" : "%s:%s" % (uid, vid) }
+        self._id = "%s:%s" % (uid, vid) 
+        self._properties = {"id" : self._id }
 
     def uid(self):
         return self._uid
@@ -54,6 +58,8 @@ class Edge:
         del self._properties[key]
         persistence.remove_edge_property(self, key)
 
+    def __str__(self):
+        return "id: %s | uid: %s | vid: %s | properties: %s" % (self._id, self._uid, self._vid, str(self._properties))
 
 class Graph:
     def _get_node(self, idx):

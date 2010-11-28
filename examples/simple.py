@@ -9,6 +9,8 @@ def simple_test():
     node = graph.node("1")
     node['name'] = 'Lucindo'
 
+    print node['name']
+
 if __name__ == '__main__':
     konig.config("localhost", 6379)
     simple_test()
