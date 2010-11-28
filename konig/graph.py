@@ -74,6 +74,7 @@ class Graph:
 
     def edge(self, uid, vid):
         edge = self._get_edge(uid, vid)
+        persistence.add_edge_to_nodes(edge.uid(), edge.vid())
         edge = persistence.load_edge(edge)
         return edge
 

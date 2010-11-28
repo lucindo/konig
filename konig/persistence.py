@@ -62,5 +62,9 @@ def del_edge(edge):
     rnodes.srem("%s:i" % vid, uid)
     redges.delete(edge['id'])
 
+def add_edge_to_nodes(uid, vid):
+    rnodes.sadd("%s:o" % uid, vid)
+    rnodes.sadd("%s:i" % vid, uid)
+
 if __name__ == '__main__':
     pass
