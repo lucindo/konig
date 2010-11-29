@@ -76,10 +76,10 @@ API Reference
 	>>> node = konig.Graph().node("lucindo")
 	>>> node["name"] = "Renato Lucindo"
 
-### konig.Node.out_edges
+### konig.Node.out_edges()
   Returns a set of outgoing edges (node ids).
 
-### konig.Node.in_edges
+### konig.Node.in_edges()
   Returns a set of incoming edges (node ids).
 
 ### konig.Edge(uid, vid)
